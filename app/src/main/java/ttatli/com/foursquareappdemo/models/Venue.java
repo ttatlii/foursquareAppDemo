@@ -2,9 +2,9 @@ package ttatli.com.foursquareappdemo.models;
 
 import java.io.Serializable;
 
-public class Venue  implements Serializable {
+public class Venue implements Serializable {
     private String name;
-   public Location location;
+    public Location location;
 
 
     public String getName() {
