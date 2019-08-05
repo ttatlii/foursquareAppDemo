@@ -2,9 +2,7 @@ package ttatli.com.foursquareappdemo.view;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,10 +19,6 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
     EditText place, city;
     Button search;
     public Location location;
-
-    private static final int REQUEST_CODE_PERMISSION = 2;
-    String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
-
 
     public MainPresenter presenter;
 
@@ -81,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
 
     }
 
-
     @Override
     public void onNextIntent(Responce responce) {
         Intent intent = new Intent(this, PlacesListActivity.class);
@@ -92,12 +85,12 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
 
     @Override
     public void updatePlace(String place) {
-
+        this.place.setText(place);
     }
 
     @Override
     public void updateCity(String city) {
-
+        this.city.setText(city);
     }
 
     public class ClickEvent implements View.OnClickListener {
@@ -107,14 +100,15 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.Vie
             switch (v.getId()) {
                 case R.id.btn_search:
 
-                    if (place.getText() != null || city.getText() != null) {
+                    if (place.getText() != null && place.getText().toString().length() > 3 || city.getText() != null && place.getText().toString().length() > 3) {
                         presenter.getNearPlaces(place.getText().toString(), tracker.getLatitude(), tracker.getLongitude(), "0DLR3D0KKH4HZM34UP0Z3LFYKKFUUEEYDJCVMY03FPQAMZO4", "XNNMOFM0BIVNA2O5URPNJQ5T5QODQPEHC5KSON30MRADVIPI", "20190804");
-                    } else {
-                        presenter.getPlaces(tracker.getLatitude(), tracker.getLongitude(), "0DLR3D0KKH4HZM34UP0Z3LFYKKFUUEEYDJCVMY03FPQAMZO4", "XNNMOFM0BIVNA2O5URPNJQ5T5QODQPEHC5KSON30MRADVIPI", "20190804");
 
                     }
+                    presenter.getPlaces(tracker.getLatitude(), tracker.getLongitude(), "0DLR3D0KKH4HZM34UP0Z3LFYKKFUUEEYDJCVMY03FPQAMZO4", "XNNMOFM0BIVNA2O5URPNJQ5T5QODQPEHC5KSON30MRADVIPI", "20190804");
+
             }
         }
     }
 }
+
 

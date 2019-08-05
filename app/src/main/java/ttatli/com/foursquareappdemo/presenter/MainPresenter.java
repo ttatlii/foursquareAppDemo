@@ -1,10 +1,4 @@
 package ttatli.com.foursquareappdemo.presenter;
-
-import android.content.Intent;
-
-import java.util.Date;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -13,8 +7,6 @@ import ttatli.com.foursquareappdemo.client.RestInterface;
 import ttatli.com.foursquareappdemo.models.Location;
 import ttatli.com.foursquareappdemo.models.Responce;
 import ttatli.com.foursquareappdemo.models.Result;
-import ttatli.com.foursquareappdemo.models.Venue;
-import ttatli.com.foursquareappdemo.view.PlacesListActivity;
 
 public class MainPresenter {
     public View view;

@@ -5,19 +5,24 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".view.PlacesListActivity">
+
     <LinearLayout
+        android:id="@+id/lnr_google_maps"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lnr_google_maps"
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/listview_places"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/listview_places">
+            android:layout_height="wrap_content">
 
         </ListView>
 
-
+        <Button
+            android:id="@+id/btn_tutup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="cancel" />
     </LinearLayout>
 </FrameLayout>
